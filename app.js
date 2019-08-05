@@ -23,11 +23,11 @@ weather.temperature = {
 const KELVIN = 273;
 //API key
 const key = "82005d27a116c2880c8f0fcb866998a0";
-
+getCoinData("bitcoin");
+getFactData();
 //CHECK if browser supports geolocation
 if(navigator.geolocation){
   navigator.geolocation.getCurrentPosition(setPosition, showError);
-  getCoinData("bitcoin");
 } else{
   notificatonElement.style.display = "block";
   notificationElement.innerHTML = "<p>Browser doesn't support Geolocation</p>";
@@ -140,3 +140,30 @@ container1.addEventListener('click', () =>{
   getCoinData('bitcoin');
 }
 })
+
+//Query the document
+const factElement = document.querySelector('.fact p');
+const drinkElement = document.querySelector('.drink-instructions p');
+let factData = {};
+
+function getFactData(){
+  let api = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+  fetch(api)
+  .then((response)=>{
+    console.log(response)
+    let data = response.json();
+    console.log(data);
+    return data;
+  })
+  .then((data)=>{
+    factData.fact = data.drinks[0].strDrink;
+    factData.cocktail = data.drinks[0].strInstructions;
+  }).then(()=>{
+    displayFact(factData.fact, factData.cocktail);
+  })
+}
+
+function displayFact(fact, cocktail){
+  factElement.innerHTML = `${fact}`;
+  drinkElement.innerHTML = `${cocktail}`
+}

@@ -5,17 +5,20 @@
 body{
     background-color: #293251;
 }
-
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
 .container{
     width: 300px;
     background-color: #FFF;
 
     display: block;
-    margin: 0 auto;
 
     border-radius: 10px;
     padding-bottom : 30px;
     cursor: pointer;
+    align: left;
 }
 
 .container1{
@@ -23,13 +26,24 @@ body{
   background-color: #FFF;
 
   display: block;
-  margin: 0 auto;
 
   border-radius: 10px;
   padding-bottom : 30px;
   cursor: pointer;
 }
 
+.container3{
+  width: 300px;
+  background-color: #FFF;
+
+  display: block;
+  marginleft: 400px;
+
+  border-radius: 10px;
+  padding-bottom : 30px;
+  cursor: pointer;
+  align: left;
+}
 .app-title{
     width: 300px;
     height: 50px;
@@ -74,6 +88,21 @@ body{
   width: 96px;
   height: 96px;
 }
+
+.fact p{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.drink-instructions p{
+  padding-top: 20px;
+  font-size: 1.75em;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
 .weather-icon img{
     display: block;
     margin: 0 auto;
